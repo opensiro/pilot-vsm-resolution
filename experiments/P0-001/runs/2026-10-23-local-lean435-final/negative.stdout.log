@@ -1,0 +1,6 @@
+fixtures/InvalidProof.lean:7:2: error: Tactic `rfl` failed: The left-hand side
+  reverse [1, 2]
+is not definitionally equal to the right-hand side
+  [1, 2]
+
+⊢ reverse [1, 2] = [1, 2]

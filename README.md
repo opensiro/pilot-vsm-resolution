@@ -1,6 +1,6 @@
 # OpenSiro × Resolution — VSM-RES-001
 
-**P0: exploratory feasibility pilot.** This is an independent OpenSiro study, not a Resolution collaboration, integration, or comparison of system performance.
+**P0: exploratory feasibility pilot — completed with `ITERATE` recommendation (2026-10-23).** This is an independent OpenSiro study, not a Resolution collaboration, integration, or comparison of system performance.
 
 Question: can a bounded VSM-governed research workflow produce independently checkable Lean artifacts, react to a detected error, and retain sufficient evidence for a later controlled experiment?
 
@@ -13,7 +13,7 @@ python3 -m unittest discover -s scripts -p 'test_*.py' -v
 python3 scripts/run_pilot.py --output experiments/local-run
 ```
 
-The second command builds the valid Lean library **and** verifies that an intentionally invalid theorem fails Lean elaboration. It returns nonzero if the positive or negative test behaves unexpectedly. Never treat a static/source-only check as Lean verification.
+The second command builds the valid Lean library **and** verifies that an intentionally invalid theorem fails Lean elaboration. A post-run supplementary checker also runs `lake env leanchecker Pilot`. It returns nonzero if the primary positive or negative test behaves unexpectedly. Never treat a static/source-only check as Lean verification.
 
 CI runs the same commands with `leanprover/lean-action@v1`; run artifacts are retained by GitHub Actions. See [P0-001 manifest](experiments/P0-001/manifest.json) for the experimental boundary. The presence of CI configuration is not itself evidence of a successful CI run.
 
@@ -23,6 +23,7 @@ CI runs the same commands with `leanprover/lean-action@v1`; run artifacts are re
 - [Pilot tasks](tasks/) — [T01](tasks/T01-proof-construction.md) proof construction, [T02](tasks/T02-defect-detection.md) negative test, [T03](tasks/T03-independent-check.md) verifier boundary.
 - [Proof of Concept](docs/PROOF_OF_CONCEPT.md) — implementation, actual evidence, gaps, external summary.
 - [Feasibility assessment](reports/P0_FEASIBILITY.md) — observed outcomes and GO/ITERATE/NO-GO decision.
+- [Executed results](experiments/P0-001/RESULTS.md) — clean Lean receipt, diagnostics, limitations and source hashes.
 - [Research record](experiments/P0-001/) — protocol-specific manifest and archived receipts.
 
 ## Normative and reference sources

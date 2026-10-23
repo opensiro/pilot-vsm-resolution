@@ -20,6 +20,8 @@ Boundary: this OpenSiro repository, the present ChatGPT research session, checke
 2. T02: challenge the verifier with a false concrete reverse equality; the Lean compiler must reject it.
 3. T03: separately execute positive/negative checks, record actual results and classify any S3*/independence gap. No human or LLM judgment substitutes for compiler exit status.
 
+Post-run **P0-A01** adds a *supplementary* `leanchecker` check without altering this protocol's primary T01/T02 acceptance criteria. See [amendment](experiments/P0-001/AMENDMENT-A01.md) and keep the earlier receipts unchanged.
+
 This is a tiny proof-engineering workflow, **not** a replica of Resolution's mathematics, 12-branch orchestration, or 366 tasks.
 
 ## Environment and control
