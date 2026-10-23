@@ -1,0 +1,33 @@
+name: P0 Lean verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+      - name: Runner unit tests
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Positive and negative Lean proof checks
+        run: python3 scripts/run_pilot.py --output "${RUNNER_TEMP}/p0-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Preserve unmodified run receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsm-res-p0-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/p0-${{ github.run_id }}-${{ github.run_attempt }}/
+          if-no-files-found: warn

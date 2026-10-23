@@ -1,0 +1,58 @@
+{
+  "protocol": "VSM-RES-001/P0-v0.1",
+  "utc_started": "2026-10-23T17:10:41.886962+00:00",
+  "host_platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "git_sha": null,
+  "ci_run_url": null,
+  "model_requested": "GPT-6 Sol",
+  "model_runtime_attested": null,
+  "input_tokens": null,
+  "output_tokens": null,
+  "model_cost_usd": null,
+  "hole_guard": {
+    "flagged_paths": [],
+    "passed": true
+  },
+  "lean_version": {
+    "argv": [
+      "lean",
+      "--version"
+    ],
+    "exit_code": null,
+    "elapsed_seconds": 0.0,
+    "stdout": "",
+    "stderr": "[Errno 2] No such file or directory: 'lean'",
+    "timed_out": false
+  },
+  "positive": {
+    "argv": [
+      "lake",
+      "build",
+      "Pilot"
+    ],
+    "exit_code": null,
+    "stdout": "",
+    "stderr": "Lean/Lake executable missing",
+    "elapsed_seconds": 0,
+    "timed_out": false
+  },
+  "negative": {
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "fixtures/InvalidProof.lean"
+    ],
+    "exit_code": null,
+    "stdout": "",
+    "stderr": "Lean/Lake executable missing",
+    "elapsed_seconds": 0,
+    "timed_out": false
+  },
+  "tasks": {
+    "T01": "BLOCKED_OR_FAIL",
+    "T02": "BLOCKED_OR_FAIL"
+  },
+  "overall": "FAIL_OR_BLOCKED"
+}

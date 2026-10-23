@@ -1,0 +1,30 @@
+{
+  "id": "VSM-RES-001/P0-001",
+  "protocol_version": "P0-v0.1",
+  "registered_utc_date": "2026-10-23",
+  "status": "configured_not_yet_verified",
+  "system_in_focus": "OpenSiro pilot-vsm-resolution repository plus coordinating ChatGPT session plus Lean runner",
+  "requested_model": "GPT-6 Sol",
+  "verified_model_id": null,
+  "lean_toolchain": "leanprover/lean4:v4.35.0",
+  "dependencies": ["Lean core"],
+  "resolution_reference": {
+    "repository": "resolutionorg/hironaka",
+    "commit": "044d89c9455859446fc5e986667319f910e15f4b",
+    "used_as_baseline": false
+  },
+  "normative_profile": {
+    "repository": "opensiro/vsm-harness-profile",
+    "version": "0.2.4",
+    "commit": "527fe01ccf1ee22e54bd9525285a89a93179c1e7"
+  },
+  "task_order": ["T01", "T02", "T03"],
+  "expected": {
+    "T01": "lake build Pilot: exit 0",
+    "T02": "lake env lean fixtures/InvalidProof.lean: nonzero with Lean error",
+    "T03": "unique JSON and raw logs with Git SHA and tool versions"
+  },
+  "metrics": ["per-task outcome", "Lean diagnostics", "wall time", "human interventions", "model input tokens if available", "model output tokens if available", "model cost if available"],
+  "unavailable_metrics_not_imputed": true,
+  "stopping": "one bounded suite; no retry-until-success or task selection on outcomes"
+}
