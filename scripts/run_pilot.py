@@ -33,6 +33,24 @@ def forbid_holes(paths=POSITIVE):
     return [str(p.relative_to(ROOT)) for p in paths if re.search(r"\b(sorry|admit)\b", p.read_text())]
 
 
+def classify_positive(result, holes):
+    if holes:
+        return "FAIL_SOURCE_GUARD"
+    if result["exit_code"] is None:
+        return "BLOCKED_EXECUTION"
+    return "PASS" if result["exit_code"] == 0 else "FAIL_PROOF"
+
+
+def classify_negative(result):
+    if result["exit_code"] is None or result["timed_out"]:
+        return "BLOCKED_EXECUTION"
+    if result["exit_code"] == 0:
+        return "FAIL_NOT_REJECTED"
+    if re.search(r"\berror:", result["stdout"] + result["stderr"]):
+        return "PASS"
+    return "FAIL_NO_LEAN_DIAGNOSTIC"
+
+
 def execute():
     start_utc = dt.datetime.now(dt.timezone.utc).isoformat()
     git = run_command(["git", "rev-parse", "HEAD"], 10)
@@ -44,10 +62,10 @@ def execute():
     else:
         positive = {"argv": ["lake", "build", "Pilot"], "exit_code": None, "stdout": "", "stderr": "Lean/Lake executable missing", "elapsed_seconds": 0, "timed_out": False}
         negative = {"argv": ["lake", "env", "lean", "fixtures/InvalidProof.lean"], "exit_code": None, "stdout": "", "stderr": "Lean/Lake executable missing", "elapsed_seconds": 0, "timed_out": False}
-    positive_ok = not holes and positive["exit_code"] == 0
-    negative_log = negative["stdout"] + negative["stderr"]
-    negative_ok = (negative["exit_code"] is not None and negative["exit_code"] != 0
-                   and not negative["timed_out"] and bool(re.search(r"\berror:", negative_log)))
+    positive_state = classify_positive(positive, holes)
+    negative_state = classify_negative(negative)
+    states = (positive_state, negative_state)
+    overall = "PASS" if states == ("PASS", "PASS") else "BLOCKED" if "BLOCKED_EXECUTION" in states else "FAIL"
     return {"protocol": "VSM-RES-001/P0-v0.1", "utc_started": start_utc,
             "host_platform": platform.platform(), "python": sys.version.split()[0],
             "git_sha": git["stdout"].strip() if git["exit_code"] == 0 else None,
@@ -56,9 +74,8 @@ def execute():
             "input_tokens": None, "output_tokens": None, "model_cost_usd": None,
             "hole_guard": {"flagged_paths": holes, "passed": not holes},
             "lean_version": version, "positive": positive, "negative": negative,
-            "tasks": {"T01": "PASS" if positive_ok else "BLOCKED_OR_FAIL",
-                      "T02": "PASS" if negative_ok else "BLOCKED_OR_FAIL"},
-            "overall": "PASS" if positive_ok and negative_ok else "FAIL_OR_BLOCKED"}
+            "tasks": {"T01": positive_state, "T02": negative_state},
+            "overall": overall}
 
 
 def main():
