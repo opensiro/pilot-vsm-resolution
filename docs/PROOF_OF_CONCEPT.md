@@ -19,6 +19,12 @@ P0 asks only whether an implementable workflow is plausible. It cannot estimate 
 
 These are implemented repository components. Actual Lean proof checking is confirmed by the [clean-run machine receipt](../experiments/P0-001/runs/2026-10-23-clean-lean435/receipt.json) and the [P0 results index](../experiments/P0-001/RESULTS.md). A GitHub workflow's existence is not a verified CI result.
 
+## GPT-6 Sol / ChatGPT Browser execution boundary
+
+The planned coordinating environment was **GPT-6 Sol in ChatGPT Browser**, using one bounded operator session for task selection, proof edits and response to errors. In this execution, the available ChatGPT-connected workspace and GitHub connector handled code and provenance while a separately installed local Lean binary performed checks; a private-repository browser view was not authenticated. The generation model's exact runtime identity was not exposed or attested, so `GPT-6 Sol` remains a *requested* model, not a measured condition. No independent GPT-6 Sol API run, token invoice or persistent autonomous Browser orchestration took place.
+
+Browser sessions have manual continuity, tool authorization and context boundaries. A repeatable API-scale experiment would require pinned model identifiers, explicit prompt transcripts, session-isolation rules, fixed token/retry budgets and machine-observed interventions. Those are **P1 prerequisites**, not outcomes of this pilot.
+
 ## VSM roles and autonomy
 
 The detailed local [function → right → owner → mechanism](../PROTOCOL.md#vsm-operational-mapping) table references [VSM Profile 0.2.4](https://github.com/opensiro/vsm-harness-profile/blob/527fe01ccf1ee22e54bd9525285a89a93179c1e7/PROFILE.md). In P0, S1/S2/S3 decisions are coordinated by the operator, S5 rights remain with the human owner, and S4 recommendations are advisory. Lean is a mechanical verifier, **not** evidence by itself of independently autonomous S3*. A separate reviewer with source isolation and authority to reject would be required for that stronger claim.
