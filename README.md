@@ -25,6 +25,7 @@ CI runs the same commands with `leanprover/lean-action@v1`; run artifacts are re
 - [Feasibility assessment](reports/P0_FEASIBILITY.md) — observed outcomes and GO/ITERATE/NO-GO decision.
 - [Executed results](experiments/P0-001/RESULTS.md) — clean Lean receipt, diagnostics, limitations and source hashes.
 - [Research record](experiments/P0-001/) — protocol-specific manifest and archived receipts.
+- [P0.1 dev-alpha replication](experiments/P0-002/RESULTS.md) — cross-host Lean results and reproducible runbook; decision remains `ITERATE`.
 
 ## Normative and reference sources
 
