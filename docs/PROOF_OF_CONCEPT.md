@@ -1,6 +1,6 @@
 # Proof of Concept — VSM-RES-001 / P0
 
-**Independent OpenSiro exploratory study.** This is a research PoC, not a Resolution endorsement or a claim about AI alignment.
+**Independent OpenSiro exploratory study; P0 executed 2026-10-23, recommendation `ITERATE`.** This is a research PoC, not a Resolution endorsement or a claim about AI alignment.
 
 ## Problem and motivation
 
@@ -14,10 +14,10 @@ P0 asks only whether an implementable workflow is plausible. It cannot estimate 
 
 - [T01](../tasks/T01-proof-construction.md): construct generic Lean list operations and mathematical properties under `Pilot/Core.lean`.
 - [T02](../tasks/T02-defect-detection.md): introduce a false equality in a separate fixture to measure actual error detection.
-- [T03](../tasks/T03-independent-check.md): run the proof build and the negative challenge through a separate Lean process, preserving exit codes, logs and timing with `scripts/run_pilot.py` and optional GitHub Actions artifact retention.
+- [T03](../tasks/T03-independent-check.md): after the Lean proof build and negative challenge, separately run `leanchecker Pilot`, preserving each exit code, log and timing with `scripts/run_pilot.py` and optional GitHub Actions artifact retention.
 - [Protocol](../PROTOCOL.md) and [manifest](../experiments/P0-001/manifest.json): stable hypotheses, task order, constraints, model request and metric rules.
 
-These are implemented repository components; **successful execution must be established by actual receipts**. A GitHub workflow's existence is not a verified result.
+These are implemented repository components. Actual Lean proof checking is confirmed by the [clean-run machine receipt](../experiments/P0-001/runs/2026-10-23-clean-lean435/receipt.json) and the [P0 results index](../experiments/P0-001/RESULTS.md). A GitHub workflow's existence is not a verified CI result.
 
 ## VSM roles and autonomy
 
@@ -25,7 +25,9 @@ The detailed local [function → right → owner → mechanism](../PROTOCOL.md#v
 
 ## Evidence and outcomes
 
-Consult [P0 feasibility report](../reports/P0_FEASIBILITY.md) and any timestamped receipt under `experiments/P0-001/runs/`. Distinguish source committed, local script tests, Lean verification, and CI run completion. The pilot is not complete merely because these links exist.
+**Observed:** after `lake clean`, `lake build Pilot` passed (0.848 s), the deliberately wrong theorem was rejected with a Lean diagnostic (0.277 s), and supplemental `lake env leanchecker Pilot` passed (0.755 s), all using Lean 4.35.0. Python unit tests passed 4/4. Times cover the individual subprocesses only, not agent reasoning or full workflow duration. See [raw JSON and logs](../experiments/P0-001/runs/2026-10-23-clean-lean435/receipt.json) and [interpretation](../reports/P0_FEASIBILITY.md).
+
+**Observed limitations:** the initial local executor lacked Lean/Lake; a GitHub Actions job failed without accessible steps/logs/artifacts ([CI run 39993639899](https://github.com/opensiro/pilot-vsm-resolution/actions/runs/39993639899)). Local verification recovered through an official toolchain installation. The local workspace was not a Git checkout (`git_sha: null`); the receipt preserves SHA-256 hashes of all check-relevant source files. The exact model runtime, tokens and model cost were not attested. The supplementary leanchecker was added after the first successful run under [amendment P0-A01](../experiments/P0-001/AMENDMENT-A01.md), not retroactively made part of primary acceptance.
 
 Compatible categories with Resolution's published process are task count, token input/output, cost, human interventions, wall time and verification. Current per-model tokens and inference dollars are unavailable unless separately attested; they are never estimated from prose length.
 
@@ -33,7 +35,9 @@ Compatible categories with Resolution's published process are task count, token 
 
 The examples do not exercise Mathlib, algebraic geometry, long-context research, inter-branch conflicts or real Resolution tools. A successful unit proof does not establish a productive research platform or a VSM effect. The current session cannot independently verify its own judgment; neither can a scripted checker infer organizational autonomy from filenames.
 
-P1, if justified, should select a small pinned public Mathlib/Hironaka-adjacent task set, run conventional orchestration and VSM orchestration at equal Sol/tool budgets, predefine acceptance checks and intervention accounting, and blind an independent reviewer to conditions. Include a no-S3* or no-S4 ablation if feasible. Preserve failed tasks and costs.
+**Decision: ITERATE.** The bounded proof/defect cycle is technically viable, but the current evidence does not demonstrate the incremental value or autonomy of VSM functions, notably independent S3*, or reliable CI portability.
+
+P1, after these gaps are addressed, should select a small pinned public Mathlib/Hironaka-adjacent task set, run conventional orchestration and VSM orchestration at equal Sol/tool budgets, predefine acceptance checks and intervention accounting, and blind an independent reviewer to conditions. Include a no-S3* or no-S4 ablation if feasible. Preserve failed tasks and costs.
 
 ## Discussion summary
 

@@ -1,0 +1,84 @@
+{
+  "protocol": "VSM-RES-001/P0-v0.1",
+  "utc_started": "2026-10-23T17:26:21.274335+00:00",
+  "host_platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "git_sha": null,
+  "source_sha256": {
+    "Pilot.lean": "b549711b1ec30f6e6aa8a5268e706cb4743a59754a12181e581554ac935af6c3",
+    "Pilot/Core.lean": "e30ed971cf543bf7c93af6ad6d0749e4c1e1a12e9888f2cb9410f26036b1dec6",
+    "Pilot/Verification.lean": "bee605e49ad2aba7a5de1fe69e25f7faa6f8efe971b8ed0c3e300adc04924a01",
+    "fixtures/InvalidProof.lean": "05f2085883850d9ebf8bbd9e677ecbae44fcf793ae73f8fad029a3c6ec3327f7",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lakefile.toml": "8bad4d8ec4229fedfc676d4e5109bd3956f086702667349379d04beff886569d",
+    "scripts/run_pilot.py": "29cf2b5c5005f3b42ee2336889b26ad5658e10c9ceded798f01d12004615e80f"
+  },
+  "ci_run_url": null,
+  "model_requested": "GPT-6 Sol",
+  "model_runtime_attested": null,
+  "input_tokens": null,
+  "output_tokens": null,
+  "model_cost_usd": null,
+  "hole_guard": {
+    "flagged_paths": [],
+    "passed": true
+  },
+  "lean_version": {
+    "argv": [
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.041,
+    "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "positive": {
+    "argv": [
+      "lake",
+      "build",
+      "Pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.157,
+    "stdout": "Build completed successfully (5 jobs).\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "negative": {
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "fixtures/InvalidProof.lean"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 0.281,
+    "stdout": "fixtures/InvalidProof.lean:7:2: error: Tactic `rfl` failed: The left-hand side\n  reverse [1, 2]\nis not definitionally equal to the right-hand side\n  [1, 2]\n\n⊢ reverse [1, 2] = [1, 2]\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "checker": {
+    "argv": [
+      "lake",
+      "env",
+      "leanchecker",
+      "Pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.879,
+    "stdout": "",
+    "stderr": "",
+    "timed_out": false
+  },
+  "tasks": {
+    "T01": "PASS",
+    "T02": "PASS"
+  },
+  "supplemental_P0_A01": {
+    "checker_status": "PASS",
+    "affects_primary_result": false
+  },
+  "overall": "PASS"
+}

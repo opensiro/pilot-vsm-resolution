@@ -1,0 +1,75 @@
+{
+  "protocol": "VSM-RES-001/P0-v0.1",
+  "utc_started": "2026-10-23T17:25:33.844224+00:00",
+  "host_platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "git_sha": null,
+  "ci_run_url": null,
+  "model_requested": "GPT-6 Sol",
+  "model_runtime_attested": null,
+  "input_tokens": null,
+  "output_tokens": null,
+  "model_cost_usd": null,
+  "hole_guard": {
+    "flagged_paths": [],
+    "passed": true
+  },
+  "lean_version": {
+    "argv": [
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.044,
+    "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "positive": {
+    "argv": [
+      "lake",
+      "build",
+      "Pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.148,
+    "stdout": "Build completed successfully (5 jobs).\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "negative": {
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "fixtures/InvalidProof.lean"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 0.261,
+    "stdout": "fixtures/InvalidProof.lean:7:2: error: Tactic `rfl` failed: The left-hand side\n  reverse [1, 2]\nis not definitionally equal to the right-hand side\n  [1, 2]\n\n⊢ reverse [1, 2] = [1, 2]\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "checker": {
+    "argv": [
+      "lake",
+      "env",
+      "leanchecker",
+      "Pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.789,
+    "stdout": "",
+    "stderr": "",
+    "timed_out": false
+  },
+  "tasks": {
+    "T01": "PASS",
+    "T02": "PASS"
+  },
+  "supplemental_P0_A01": {
+    "checker_status": "PASS",
+    "affects_primary_result": false
+  },
+  "overall": "PASS"
+}

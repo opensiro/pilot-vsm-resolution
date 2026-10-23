@@ -30,7 +30,7 @@ theorem reverse_append {α : Type u} (xs ys : List α) :
     reverse (append xs ys) = append (reverse ys) (reverse xs) := by
   induction xs with
   | nil =>
-      simpa [append, reverse, append_nil]
+      simp [append, reverse, append_nil]
   | cons x xs ih =>
       calc
         reverse (append (x :: xs) ys)
