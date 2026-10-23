@@ -1,0 +1,52 @@
+{
+  "id": "VSM-RES-001/P0-002",
+  "label": "P0.1 dev-alpha cross-host portability probe",
+  "recorded_utc_date": "2026-10-23",
+  "registration_timing": "Post-execution record of unchanged P0-v0.1 Lean suite; not preregistered as a new efficacy trial",
+  "protocol_reference": "VSM-RES-001/P0-v0.1",
+  "source_repository": "opensiro/pilot-vsm-resolution",
+  "source_git_sha": "1f232ebfc915bb7a45db20ac12381cc2099f7136",
+  "host": {
+    "environment": "dev-alpha SSH / Zhdanov's Siro VM",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "root_filesystem_available_before": "481 MB",
+    "temporary_filesystem": "/dev/shm",
+    "temporary_filesystem_available_before": "18 GB",
+    "persistent_lean_installation": false
+  },
+  "lean": {
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "source_archive_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+    "archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+    "binary_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+  },
+  "execution": {
+    "steps": [
+      "python3 -m unittest discover -s scripts -p 'test_*.py' -v",
+      "lake clean",
+      "python3 scripts/run_pilot.py --output experiments/P0-002/runs/2026-10-23-dev-alpha-lean435"
+    ],
+    "runner_session": "4283cee3-a911-4673-96a4-309ba839abd0",
+    "preflight_failed_session": "2cf0522c-dc39-4289-a57e-a130b6d77de8",
+    "preflight_note": "Initial SSH plugin cwd parameter ran from home; aborted before suite, retried with explicit shell cd. Not an experimental trial."
+  },
+  "trial_count": 1,
+  "unit_test_count": 4,
+  "unit_test_failures": 0,
+  "result": "PASS",
+  "primary_tasks": {
+    "T01": "PASS",
+    "T02": "PASS"
+  },
+  "supplemental_checker": {
+    "checker_status": "PASS",
+    "affects_primary_result": false
+  },
+  "model_runtime_attested": null,
+  "input_tokens": null,
+  "output_tokens": null,
+  "model_cost_usd": null,
+  "independent_agent_reviewer_exercised": false,
+  "github_actions_modified": false
+}
