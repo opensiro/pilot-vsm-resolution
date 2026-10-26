@@ -4,6 +4,8 @@
 
 **Not a Resolution project or collaboration.** This repository is an independent OpenSiro study motivated in part by Resolution's public work on research automation. It does not establish performance parity, comparative VSM benefit, or adoption by Resolution.
 
+**Prospective use:** make AI-assisted research systems legible to humans—who acts, who decides, which boundaries are enforceable, and how interventions return to operation—as a foundation for investigating AI safety. Standardization, contributor interoperability and onboarding are additional goals; agent throughput improvements are **not assumed**. See the [draft collaboration proposal](docs/RESOLUTION_COLLABORATION_PROPOSAL.md).
+
 ## Start here
 
 | Reading path | Document | What it establishes |
@@ -20,7 +22,7 @@
 | **Research Automation case study** | **Completed; merged in [PR #8](https://github.com/opensiro/pilot-vsm-resolution/pull/8)** | Retrospective, redacted narrative of a **separate private harness**. It is not a publicly reproducible software demo, a VSM-effect result, or the source of the separate AAMAS 2027 paper's outcomes. |
 | **Research Control Plane** | **Proposed** | Function-first design only; no positive S1–S5 ownership/autonomy grades inferred. S3* is excluded from this pilot's current scope. |
 | **Lean P0 and P0.1** | **Executed; `ITERATE`** | Limited technical verification and reproducibility, not a matched baseline or evidence of VSM superiority. |
-| **Technical P0.2 runner** | **Deferred, incomplete** | [Issue #5](https://github.com/opensiro/pilot-vsm-resolution/issues/5) / [open PR #6](https://github.com/opensiro/pilot-vsm-resolution/pull/6): Python tests passed, but no live P0.2 Lean run or S3 closure result is claimed. |
+| **Technical P0.2 runner** | **Deferred, incomplete; issue reopened** | [Open issue #5](https://github.com/opensiro/pilot-vsm-resolution/issues/5) / [open PR #6](https://github.com/opensiro/pilot-vsm-resolution/pull/6): Python tests passed, but no live P0.2 Lean run or S3 closure result is claimed. |
 
 ## Scope and scientific standards
 
@@ -44,7 +46,7 @@ python3 -m unittest discover -s scripts -p 'test_*.py' -v
 python3 scripts/run_pilot.py --output experiments/local-run
 ```
 
-The runner builds the valid Lean library and verifies that an intentionally invalid theorem fails elaboration. The supplementary check runs `lake env leanchecker Pilot`. A source-only check is **not** proof verification. GitHub Actions has exhibited an unresolved job/log failure (`BlobNotFound`); workflow configuration alone is not evidence of CI success.
+The runner builds the valid Lean library and verifies that an intentionally invalid theorem fails elaboration. The supplementary check runs `lake env leanchecker Pilot`. A source-only check is **not** proof verification. Each invocation needs a fresh output directory; the runner refuses to overwrite evidence. The [CI workflow](.github/workflows/p0-lean.yml) runs the same checks and Python tests; inspect [actual Actions runs](https://github.com/opensiro/pilot-vsm-resolution/actions) before claiming CI passed. Historical unsuccessful CI runs, including the earlier `BlobNotFound` log-retrieval limitation, remain part of the P0 record.
 
 ### Historical evidence and implementation
 
@@ -60,6 +62,7 @@ The historical feasibility report contains preliminary S2/S4 interpretations. **
 
 - [OpenSiro VSM Profile v0.2.4](https://github.com/opensiro/vsm-harness-profile/blob/527fe01ccf1ee22e54bd9525285a89a93179c1e7/PROFILE.md) — normative S1–S5 semantics, ownership, autonomy.
 - [OpenSiro Assessment Methodology v0.3.8](https://github.com/opensiro/vsm-harness-skills/tree/5d36fd2e40e4e8a1711b1f315f7a60a9a78a2a25/skills/assess-vsm-harness) — distinct from this pilot's exploratory mapping.
+- [OpenSiro VSM OSS Organization](https://github.com/opensiro/vsm-oss-organization) — existing applied contributor/onboarding/control reference, not a second normative standard.
 - [Resolution's public Hironaka research](https://resolution.org/post/formalizing-resolution-of-singularities) and [source snapshot](https://github.com/resolutionorg/hironaka/tree/044d89c9455859446fc5e986667319f910e15f4b) — motivation and context, **not** the comparison baseline.
 
 No Resolution affiliation, endorsement, adoption, or comparative effectiveness is implied.
