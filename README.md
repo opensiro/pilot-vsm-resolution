@@ -31,7 +31,7 @@ This repository distinguishes **protocol**, **execution**, **raw evidence**, **r
 - **What exists:** a redacted external-facing case study, an exploratory Lean PoC with historical receipts, and a proposed research-control architecture.
 - **What remains unverified:** a new non-Lean live demonstration, independently inspectable evidence for the private case study, a real inter-S1 coordination closure, a prospective S4 return, and any causal advantage from VSM over a coherent baseline.
 - **Evidence policy:** preserve negative/null outcomes, human interventions, unavailable costs, and failures. Historical results are not rewritten to match new research priorities.
-- **Publication boundary:** the case study deliberately omits private harness code, prompts, configuration, raw traces, internal paths, and secrets. Its presence in this **private repository is not authorization to distribute it externally**.
+- **Publication boundary:** this repository is **public**, but the case study is a redacted narrative only. Underlying private harness code, prompts, configuration, raw traces, internal paths, and secrets have **not** been released; sharing them requires separate owner disclosure review.
 
 ## Historical Lean feasibility pilot (P0 / P0.1)
 
