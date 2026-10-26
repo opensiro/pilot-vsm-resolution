@@ -1,0 +1,11 @@
+{
+  "id": "VSM-RES-001/P0.2-v0.1",
+  "registered_on": "2026-10-26",
+  "question": "Can the whole-work current-control owner respond to an intentionally injected compute-budget exception and return a decision into subsequent operation?",
+  "max_primary_plus_optional_seconds": 0.001,
+  "optional_estimate_seconds": 3.0,
+  "primary_tasks": ["T01", "T02"],
+  "optional_task": "leanchecker Pilot",
+  "fixture": "EXPLICIT_INJECTED_BUDGET_PRESSURE",
+  "policy": "This is a controlled exception demonstration, not a naturally observed resource crisis or a claim of autonomous S3 ownership."
+}
