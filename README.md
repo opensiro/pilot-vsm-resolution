@@ -26,6 +26,7 @@ CI runs the same commands with `leanprover/lean-action@v1`; run artifacts are re
 - [Executed results](experiments/P0-001/RESULTS.md) — clean Lean receipt, diagnostics, limitations and source hashes.
 - [Research record](experiments/P0-001/) — protocol-specific manifest and archived receipts.
 - [P0.1 dev-alpha replication](experiments/P0-002/RESULTS.md) — cross-host Lean results and reproducible runbook; decision remains `ITERATE`.
+- [Minimal Research Control Plane — proposed design](docs/RESEARCH_CONTROL_PLANE_DESIGN.md) — three user-facing stages, strict S1–S5 decision-right witnesses, and a bounded next iteration; **not executed yet**.
 
 ## Normative and reference sources
 
