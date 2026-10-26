@@ -1,0 +1,11 @@
+{
+  "id": "VSM-RES-001/P0.2-v0.1",
+  "registered_on": "2026-10-26",
+  "question": "Can a bounded Lean research workflow expose current-work evidence to a legitimate discretionary resource decision, enforce the return, and preserve a replayable closure record?",
+  "max_primary_plus_optional_seconds": 10.0,
+  "optional_estimate_seconds": 3.0,
+  "primary_tasks": ["T01", "T02"],
+  "optional_task": "leanchecker Pilot",
+  "policy": "S5 remains with the OpenSiro human owner; no causal VSM superiority or autonomous ownership claim follows from this protocol.",
+  "disclosure": "Configured budget-pressure fixtures, when used, are explicitly injected demonstrations rather than natural operating failures."
+}
