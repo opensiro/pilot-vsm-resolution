@@ -2,7 +2,7 @@
 
 **VSM-RES-001 · Case-study track · 2026-10-26**  
 **Status:** retrospective, bounded, non-confirmatory report.  
-**Disclosure:** review before sharing externally; no private harness source, prompts, configuration, raw traces, or internal evidence paths are included.
+**Disclosure:** this redacted summary is publicly accessible. Underlying private harness source, prompts, configuration, raw traces, and internal evidence paths are not included and require separate owner disclosure approval before release.
 
 ## Executive summary
 
@@ -84,4 +84,4 @@ For a prospective Resolution discussion, these are candidates for evaluating res
 - Summary observations were checked against the private harness's completed exploratory Pilot 0 result and research boundary documentation as available on 2026-10-26. Internal file paths, revisions, run IDs, and data are deliberately omitted.
 - The separate VSM-RES-001 Lean P0/P0.1 outcomes remain recorded in this repository and retain `ITERATE`. This case-study track does not overwrite or reclassify them.
 - The proposed [Research Control Plane design](RESEARCH_CONTROL_PLANE_DESIGN.md) and the open implementation [PR #6](https://github.com/opensiro/pilot-vsm-resolution/pull/6) are distinct, unfinished work; no live new run is claimed here.
-- Any external sharing of this report should follow a separate disclosure review by the owner. The report does not grant access to the private harness.
+- This report is already public; its publication does **not** authorize distribution of the underlying private harness, unredacted source material, prompts, or machine evidence. Any such disclosure requires a separate owner review.
