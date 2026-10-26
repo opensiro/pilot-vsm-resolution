@@ -11,6 +11,7 @@
 | **1. Existing work** | [Redacted Research Automation Case Study](docs/RESEARCH_AUTOMATION_CASE_STUDY.md) | A completed **private, exploratory** harness exercise summarized without source disclosure: three bounded trials, ordinary evaluation, complementary review, and explicit limits. External sharing requires **owner disclosure review**. |
 | **2. Prospective method** | [Minimal Research Control Plane design](docs/RESEARCH_CONTROL_PLANE_DESIGN.md) | A simple governance → operations → evidence view, separated from formal S1–S5 function/ownership claims. **Design only**, not a new executed experiment. |
 | **3. Earlier technical evidence** | [P0 feasibility assessment](reports/P0_FEASIBILITY.md) and [P0.1 replication](experiments/P0-002/RESULTS.md) | Narrow Lean 4 proof and error-checking feasibility, including an external-host replication. Both retain `ITERATE`. |
+| **4. Prospective collaboration** | [OpenSiro × Resolution proposal](docs/RESOLUTION_COLLABORATION_PROPOSAL.md) | **Draft only:** human-legible and governable AI research as an AI-safety foundation, qualitative contributor onboarding, and controlled system-modification/Lean pilot options requiring Resolution's joint evaluation. |
 
 ### Current status — 2026-10-26
 
