@@ -45,7 +45,7 @@ These are **source-reported, internally recorded results**. The summary does not
 
 ## Function-first VSM interpretation
 
-The labels below use the semantics of the [OpenSiro VSM Profile](https://github.com/opensiro/vsm-harness-profile/blob/main/PROFILE.md). A declared architectural responsibility does not establish a function, its decision owner, or an autonomy state. **S3\*** is outside this case-study track's assessment scope.
+The labels below use the semantics of [OpenSiro VSM Profile v0.2.4](https://github.com/opensiro/vsm-harness-profile/blob/527fe01ccf1ee22e54bd9525285a89a93179c1e7/PROFILE.md) and distinguish a retrospective mapping from a formal assessment under [Assessment Methodology v0.3.8](https://github.com/opensiro/vsm-harness-skills/tree/5d36fd2e40e4e8a1711b1f315f7a60a9a78a2a25/skills/assess-vsm-harness). A declared architectural responsibility does not establish a function, its decision owner, or an autonomy state. **S3\*** is outside this case-study track's assessment scope.
 
 | Function | What this case study can say | What it cannot say |
 | --- | --- | --- |
