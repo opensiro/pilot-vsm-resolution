@@ -27,6 +27,7 @@ CI runs the same commands with `leanprover/lean-action@v1`; run artifacts are re
 - [Research record](experiments/P0-001/) — protocol-specific manifest and archived receipts.
 - [P0.1 dev-alpha replication](experiments/P0-002/RESULTS.md) — cross-host Lean results and reproducible runbook; decision remains `ITERATE`.
 - [Minimal Research Control Plane — proposed design](docs/RESEARCH_CONTROL_PLANE_DESIGN.md) — three user-facing stages, strict S1–S5 decision-right witnesses, and a bounded next iteration; **not executed yet**.
+- [Research Automation — redacted case study](docs/RESEARCH_AUTOMATION_CASE_STUDY.md) — owner-review draft summarizing a **separate private exploratory research-harness exercise**; no private implementation or raw evidence is disclosed, no new VSM-RES-001 live run is claimed, and external sharing requires owner disclosure review ([case-study issue #7](https://github.com/opensiro/pilot-vsm-resolution/issues/7)).
 
 ## Normative and reference sources
 
