@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 *.olean
 *.ilean
+
+# Local verification receipts are user-generated; canonical experiments remain tracked.
+/experiments/local-run/
