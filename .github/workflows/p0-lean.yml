@@ -24,6 +24,18 @@ jobs:
         run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
       - name: Positive and negative Lean proof checks
         run: python3 scripts/run_pilot.py --output "${RUNNER_TEMP}/p0-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Print bounded proof diagnostics on failure
+        if: failure()
+        env:
+          P0_OUTPUT: ${{ runner.temp }}/p0-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          for log in "$P0_OUTPUT"/positive.stderr.log "$P0_OUTPUT"/positive.stdout.log "$P0_OUTPUT"/negative.stderr.log "$P0_OUTPUT"/negative.stdout.log; do
+            if [ -f "$log" ]; then
+              echo "::group::$(basename "$log")"
+              sed -n '1,100p' "$log"
+              echo "::endgroup::"
+            fi
+          done
       - name: Preserve unmodified run receipts
         if: always()
         uses: actions/upload-artifact@v4
